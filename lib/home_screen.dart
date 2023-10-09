@@ -137,11 +137,11 @@ class CardList extends StatelessWidget {
       children: <Widget>[
         PdfCard(
           pdfUrl:
-              'https://www.capgeox.org/uploads/1/3/1/9/131934518/la_muralla_y_los_libros.pdf',
+              'https://drive.google.com/file/d/1bUeZ0e4C3Fv4tIqfpLxwU-bEQAxR0hmH/view?usp=drive_link',
         ),
         PdfCard(
           pdfUrl:
-              'https://drive.google.com/file/d/18npg6QD-gU3-Y8AtB5LmmdnwTvP6wtPK/view?usp=drivesdk',
+              'https://drive.google.com/file/d/1_r8kXW6O8JwUu2u3vbSuZjCtlqHZP83t/view?usp=drive_link',
         ),
         // Agrega más tarjetas según sea necesario
       ],
