@@ -104,6 +104,7 @@ class BottomIcons extends StatelessWidget {
             Icons.home,
             color: Colors.white,
           ),
+          //Rutas a las distintas vistas de la App
           InkWell(
             onTap: () {
               Navigator.push(
@@ -128,6 +129,7 @@ class BottomIcons extends StatelessWidget {
   }
 }
 
+//Aqui tiene como funcion visualizar los PDFS generados por el sistema web
 class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -149,6 +151,7 @@ class CardList extends StatelessWidget {
   }
 }
 
+//Clase encarga de hacer la conexion entre los PDFS alojados en la nube y la App movil
 class PdfCard extends StatelessWidget {
   final String pdfUrl;
 

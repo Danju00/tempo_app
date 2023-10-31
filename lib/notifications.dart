@@ -32,7 +32,29 @@ class Notifications extends StatelessWidget {
                 ],
               ),
               SizedBox(height: 20.0),
-              // Aquí puedes agregar contenido adicional al body
+              DismissibleCard(
+                key: UniqueKey(),
+                child: GestureDetector(
+                  onTap: () {
+                    _showNotificationDialog(context, 'Notificación 1',
+                        'Este es el texto de la notificación 1.');
+                  },
+                  child: Card(
+                    child: ListTile(
+                      title: Text('Notificacion 1'),
+                    ),
+                  ),
+                ),
+              ),
+              DismissibleCard(
+                key: UniqueKey(),
+                child: Card(
+                  child: ListTile(
+                    title: Text('Notificacion 2'),
+                  ),
+                ),
+              ),
+              // Otras tarjetas de notificación aquí
             ],
           ),
         ),
@@ -119,6 +141,7 @@ class BottomIcons extends StatelessWidget {
   }
 }
 
+//Parte encarga de mostrar las notificaciones generadas por el sistema web
 class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -131,4 +154,56 @@ class NotificationsScreen extends StatelessWidget {
       ),
     );
   }
+}
+
+class DismissibleCard extends StatelessWidget {
+  final Key key;
+  final Widget child;
+
+  const DismissibleCard({
+    required this.key,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+      key: key,
+      onDismissed: (direction) {
+        // Aquí puedes realizar alguna acción cuando se deslice la tarjeta
+      },
+      background: Container(
+        color:
+            Color.fromARGB(255, 131, 131, 131), // Color del fondo al deslizar
+        child: Icon(
+          Icons.delete,
+          color: Colors.white,
+          size: 40.0,
+        ),
+        alignment: Alignment.centerRight,
+        padding: EdgeInsets.only(right: 20.0),
+      ),
+      child: child,
+    );
+  }
+}
+
+void _showNotificationDialog(BuildContext context, String title, String text) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: Text(title),
+        content: Text(text),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text('Cerrar'),
+          ),
+        ],
+      );
+    },
+  );
 }

@@ -20,22 +20,7 @@ class Profile extends StatelessWidget {
           title: Text('Perfil'),
         ),
         body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              SizedBox(height: 20.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  OvalButton(
-                    text: 'All',
-                    color: Color.fromRGBO(128, 128, 128, 0.7),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20.0),
-              // Aquí puedes agregar contenido adicional al body
-            ],
-          ),
+          child: Column(),
         ),
         bottomNavigationBar: BottomIcons(),
       ),
@@ -116,20 +101,6 @@ class BottomIcons extends StatelessWidget {
             child: Icon(Icons.person, color: Colors.white),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class NotificationsScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Notificaciones'),
-      ),
-      body: Center(
-        child: Text('Contenido de la página de notificaciones'),
       ),
     );
   }

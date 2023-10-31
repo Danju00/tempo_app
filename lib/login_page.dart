@@ -122,7 +122,7 @@ class _LoginState extends State<Login> {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 80.0, vertical: 15.0),
         child: Text(
-          'Ingresar', // Cambio de texto en el botón
+          'Ingresar',
           style: TextStyle(
             fontSize: 16.0,
             fontWeight: FontWeight.bold,

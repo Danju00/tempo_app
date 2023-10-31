@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: LoadingScreen(),
       initialRoute: LoadingScreen.id,
+      //Mapa de rutas
       routes: {
         LoadingScreen.id: (context) => LoadingScreen(),
         Login.id: (context) => Login(),
