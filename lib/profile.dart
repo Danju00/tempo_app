@@ -6,7 +6,8 @@ void main() => runApp(const Profile());
 
 class Profile extends StatelessWidget {
   static String id = 'Profile';
-  const Profile({super.key});
+
+  const Profile({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +20,18 @@ class Profile extends StatelessWidget {
           backgroundColor: Color.fromARGB(255, 72, 165, 144),
           title: Text('Perfil'),
         ),
-        body: SingleChildScrollView(
-          child: Column(),
+        body: Column(
+          children: <Widget>[
+            SizedBox(height: 20.0),
+            Center(
+              child: CircleAvatar(
+                radius: 50, // Tamaño del avatar
+                backgroundImage: AssetImage(
+                    'assets/img/usuario.png'), // Ruta de la imagen de perfil
+              ),
+            ),
+            // Otro contenido que desees agregar en el cuerpo
+          ],
         ),
         bottomNavigationBar: BottomIcons(),
       ),
