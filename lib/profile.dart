@@ -25,16 +25,69 @@ class Profile extends StatelessWidget {
             SizedBox(height: 20.0),
             Center(
               child: CircleAvatar(
-                radius: 50, // Tamaño del avatar
-                backgroundImage: AssetImage(
-                    'assets/img/usuario.png'), // Ruta de la imagen de perfil
+                radius: 50,
+                backgroundImage: AssetImage('assets/img/usuario.png'),
               ),
             ),
+            SizedBox(height: 100.0),
+            SemiOvalButton(text: 'Botón 1'),
+            SizedBox(height: 25.0), // Separación entre botones
+            SemiOvalButton(text: 'Botón 2'),
+            SizedBox(height: 25.0), // Separación entre botones
+            SemiOvalButton(text: 'Botón 3'),
             // Otro contenido que desees agregar en el cuerpo
           ],
         ),
         bottomNavigationBar: BottomIcons(),
       ),
+    );
+  }
+}
+
+class SemiOvalButton extends StatelessWidget {
+  final String text;
+
+  const SemiOvalButton({
+    required this.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300.0,
+      height: 40.0, // Ajusta el ancho del botón según tus necesidades
+      child: ElevatedButton(
+        onPressed: () {
+          _showPopup(context, text);
+        },
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          primary: Colors.white,
+        ),
+        child: Text(text),
+      ),
+    );
+  }
+
+  void _showPopup(BuildContext context, String buttonText) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Botón Presionado'),
+          content: Text('Has presionado el botón: $buttonText'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Cerrar'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
